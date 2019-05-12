@@ -1,0 +1,9 @@
+<% if notice %>
+  <p id="notice" class="notification"><%= notice %></p>
+<% end %>
+
+<div class="images">
+  <% @images.each do |image| %>
+    <img src="/images/<%= image.user_id %>_<%= image.filename %>">
+  <% end %>
+</div>

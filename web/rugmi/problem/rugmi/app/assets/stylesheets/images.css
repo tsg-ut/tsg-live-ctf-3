@@ -1,0 +1,19 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+
+.images {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 1rem 0;
+	align-items: center;
+	justify-content: center;
+}
+
+.images img {
+	margin: 2px;
+	height: 14rem;
+	max-width: 30rem;
+	object-fit: contain;
+}
