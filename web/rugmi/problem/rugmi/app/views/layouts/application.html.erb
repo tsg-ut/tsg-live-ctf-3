@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rugmi</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body>
+    <nav class="navbar is-dark">
+      <h1 class="navbar-brand" style="font-weight: bold; font-size: 1.5rem;">
+        <%= link_to 'Rugmi', '/', class: 'navbar-item' %>
+      </h1>
+      <div class="navbar-end">
+        <% if user_signed_in? %>
+          <h2 class="navbar-item">ログイン中: <%= current_user.name %></h2>
+        <% end %>
+        <div class="navbar-item">
+          <div class="buttons">
+            <% if user_signed_in? %>
+              <%= link_to 'マイ画像', my_path, class: 'button is-info' %>
+              <%= link_to 'アップロードする', new_image_path, class: 'button is-primary' %>
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'button is-light' %>
+            <% else %>
+              <%= link_to "ログイン", new_user_session_path, class: 'post button is-light' %>
+              <%= link_to "新規登録", new_user_registration_path, class: 'post button is-primary' %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <section class="section">
+      <div class="container">
+        <%= yield %>
+      </div>
+    </section>
+  </body>
+</html>

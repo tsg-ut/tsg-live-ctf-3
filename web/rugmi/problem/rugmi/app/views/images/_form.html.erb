@@ -1,0 +1,43 @@
+<%= form_with(model: image, local: true) do |form| %>
+  <% if image.errors.any? %>
+    <div id="error_explanation" class="notification is-danger">
+      <h2><%= pluralize(image.errors.count, "error") %> prohibited this image from being saved:</h2>
+      <ul>
+      <% image.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <div class="file">
+      <label class="file-label">
+        <%= form.file_field :file, class: 'file-input' %>
+        <span class="file-cta">
+          <span class="file-icon">
+            <i class="fas fa-upload"></i>
+          </span>
+          <span class="file-label">
+            ファイルを選択
+          </span>
+        </span>
+      </label>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="control">
+      <label class="checkbox">
+        <%= form.check_box :is_public, checked: true %>
+        全体公開しますか?
+      </label>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="control">
+      <%= form.submit 'アップロード', class: 'button is-link' %>
+    </div>
+  </div>
+<% end %>
