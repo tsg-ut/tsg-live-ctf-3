@@ -6,7 +6,7 @@
 
 ## 問題文
 
-わいわい
+みんなだいすき Heap問 (:furuikeya:)
 
 ```
 nc hoge
