@@ -1,10 +1,11 @@
-#!/usr/bin/env python3.6
+#!/usr/bin/env python3.5
 import sys
 import os
 import binascii
 import subprocess
 import random
 import re
+import signal
 
 from flag import flag
 
@@ -38,6 +39,7 @@ def proof_of_work():
 
 
 def main():
+    signal.alarm(40 + TIMEOUT)
     if not proof_of_work():
         print('proof of work fail')
         return
@@ -51,13 +53,17 @@ def main():
         print('invalid size')
         return
 
+    print('OK. Please input your code')
     code = sys.stdin.read(size)
+    if '#' in code:
+        print('You cannot contain \'#\' in your code')
+        return
     filename = gen_filename()
     with open(filename, 'w') as f:
         f.write(code)
 
     # os.close(2)
-    input()
+    print('Nice! I\'ll compile your code')
     try:
         subprocess.check_call((cmpl % filename).split(' '), timeout=TIMEOUT)
     except subprocess.TimeoutExpired:
