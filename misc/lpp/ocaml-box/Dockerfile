@@ -22,6 +22,4 @@ WORKDIR /ocaml
 
 RUN ./configure && make world.opt
 
-COPY ./start.sh /start.sh
-
-CMD ["/start.sh"]
+CMD make runtop
