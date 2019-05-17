@@ -3,15 +3,37 @@
 		<title>Websh</title>
 	</head>
 	<body>
-		<input type="text" name="query">
-		<button name="send">query</button>
+		<input type="text" id="query">
+		<button id="send">query</button>
+		<p id="status"></p>
+		<p id="output"></p>
 	</body>
+	<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
 	<script>
-		const $ = require('jquery');
 		function send() {
+			var query = $('#query').val();
+			var data = {query};
+			$('#status').val('querying');
+			$('#output').val('');
+			$.ajax({
+				type: 'post',
+				url: '/query',
+				data: JSON.stringify(data),
+				contentType: 'application/json',
+				dataType: "json",
+				success: function(result) {
+					var status = result['result'];
+					var data = result['data'];
+					$('#status').text(status);
+					$('#output').text(data);
+				},
+			});
 		}
-		$(document).ready(() => {
-			$('#send').click(() => send());
+		$(document).ready(function() {
+			$('#send').click(send);
 		});
 	</script>
 </html>

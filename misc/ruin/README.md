@@ -8,10 +8,14 @@
 
 コンパイルに披露困憊！ｗ
 
+```
+$ rustc -V
+
+```
+
 ## 配布
 
 [run.py](problem/run.py)
-[Dockerfile](problem/Dockerfile)
 
 
 ## 難易度
