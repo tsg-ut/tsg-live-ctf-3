@@ -18,6 +18,7 @@ services:
       RAILS_DATABASE_USERNAME: rugmi
       RAILS_DATABASE_PASSWORD: very_very_long_and_secure_password_that_you_cannot_guess_for_the_evil
       RAILS_DATABASE_HOST: db
+      SECRET_KEY_BASE: 23826c378b30ec1a6059b20148ff95bf4bd2bf5b9cf1154c0f91e1585d7cc6117fbc8f98d28643e9104631a666a64871876a49a8eba300f467f56e66224af9a7
   db:
     image: mysql:5.7
     ports:
