@@ -1,2 +1,2 @@
-all: starry.go
+build: starry.go
 	go build && mv problem starry
