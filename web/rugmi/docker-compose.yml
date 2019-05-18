@@ -1,22 +1,22 @@
 version: '3'
 services:
   rails:
-    build: .
+    build: ./problem/rugmi
     ports:
       - '10007:3000'
     volumes:
-      - .:/rails
+      - ./problem/rugmi:/rails
     links:
       - db
     command: >
       wait-for db:3306 -t 180 -- sh -c "
-        RAILS_DATABASE_USERNAME=root RAILS_DATABASE_PASSWORD=*censored* bundle exec rake db:create db:migrate db:seed &&
+        RAILS_DATABASE_USERNAME=root RAILS_DATABASE_PASSWORD=uHrrsLzb6QWIm5CC bundle exec rake db:create db:migrate db:seed &&
         bundle exec rails server --binding 0.0.0.0
       "
     environment:
       RAILS_ENV: production
       RAILS_DATABASE_USERNAME: rugmi
-      RAILS_DATABASE_PASSWORD: *censored*
+      RAILS_DATABASE_PASSWORD: very_very_long_and_secure_password_that_you_cannot_guess_for_the_evil
       RAILS_DATABASE_HOST: db
       SECRET_KEY_BASE: 23826c378b30ec1a6059b20148ff95bf4bd2bf5b9cf1154c0f91e1585d7cc6117fbc8f98d28643e9104631a666a64871876a49a8eba300f467f56e66224af9a7
   db:
@@ -25,5 +25,5 @@ services:
       - '3306:3306'
     environment:
       MYSQL_USER: rugmi
-      MYSQL_PASSWORD: *censored*
-      MYSQL_ROOT_PASSWORD: *censored*
+      MYSQL_PASSWORD: very_very_long_and_secure_password_that_you_cannot_guess_for_the_evil
+      MYSQL_ROOT_PASSWORD: uHrrsLzb6QWIm5CC
