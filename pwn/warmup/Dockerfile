@@ -23,6 +23,6 @@ RUN chmod 444 /etc/xinetd.d/ctf && \
     chmod 555 ./libc-2.27.so
 
 USER user
-EXPOSE 30002
+EXPOSE 34000
 
 CMD ["xinetd", "-dontfork"]

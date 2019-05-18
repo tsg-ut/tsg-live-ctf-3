@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.5
+#!/usr/bin/python3 -u
 import sys
 import os
 import binascii
@@ -12,9 +12,9 @@ from flag import flag
 cmpl = 'rustc %s'
 
 TIMEOUT = 20
-SIZE = 1000
+SIZE = 500
 prefix_size = 0x100000
-pow_difficulty = 24
+pow_difficulty = 23
 
 
 def gen_filename():
@@ -22,7 +22,7 @@ def gen_filename():
     return tmp + binascii.hexlify(os.urandom(16)).decode('ascii') + '.rs'
 
 def proof_of_work():
-    prefix = hex(random.randint(0, prefix_size))[2:]
+    prefix = hex(random.randint(0, prefix_size))[2:].rjust(5, '0')
     print('$ npm install -g proof-of-work')
     print('$ proof-of-work {} {}'.format(prefix, pow_difficulty))
     s = input()
@@ -39,7 +39,7 @@ def proof_of_work():
 
 
 def main():
-    signal.alarm(40 + TIMEOUT)
+    signal.alarm(60)
     if not proof_of_work():
         print('proof of work fail')
         return
@@ -61,6 +61,8 @@ def main():
     filename = gen_filename()
     with open(filename, 'w') as f:
         f.write(code)
+
+    signal.alarm(0)
 
     # os.close(2)
     print('Nice! I\'ll compile your code')
