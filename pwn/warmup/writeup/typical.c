@@ -41,6 +41,7 @@ void command_free() {
 void command_show() {
     int index = get_index();
     printf("%s\n", ptrs[index]);
+    puts("Done.");
 }
 
 int main(void) {
@@ -52,16 +53,20 @@ int main(void) {
     puts("Hello. Typical note system.");
 
     while(1) {
+        printf("> ");
         if (scanf("%d", &choice) != 1)
             bye();
 
         switch(choice) {
             case 0:
                 command_malloc();
+                break;
             case 1:
                 command_free();
+                break;
             case 2:
                 command_show();
+                break;
             default:
                 bye();
         }

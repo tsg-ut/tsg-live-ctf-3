@@ -5,7 +5,7 @@ services:
         build: ./
         restart: always
         ports:
-            - "34000:30001"
+            - "34000:34000"
         expose:
             - "34000"
         mem_limit: 100m
