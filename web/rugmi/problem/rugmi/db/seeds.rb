@@ -87,7 +87,7 @@ end
   )
 end
 
-flagfile = "flag_#{('a'..'z').to_a.shuffle.join}.png"
+flagfile = "flag#{('a'..'z').to_a.shuffle.join}.png"
 FileUtils.mkdir_p(Rails.root.join('public', 'uploads', '1'))
 FileUtils.move(Rails.root.join('flag.png'), Rails.root.join('public', 'uploads', '1', flagfile))
 Image.create!(
