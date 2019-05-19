@@ -12,7 +12,7 @@ from flag import flag
 cmpl = 'rustc %s'
 
 TIMEOUT = 20
-SIZE = 500
+SIZE = 1000
 prefix_size = 0x100000
 pow_difficulty = 23
 
