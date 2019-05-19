@@ -65,12 +65,17 @@ def main():
     signal.alarm(0)
 
     # os.close(2)
+    ok = False
     print('Nice! I\'ll compile your code')
     try:
         subprocess.check_call((cmpl % filename).split(' '), timeout=TIMEOUT)
     except subprocess.TimeoutExpired:
         print('Good job. The flag is {}'.format(flag))
+        ok = True
     finally:
         os.remove(filename)
+
+    if not ok:
+        print('Wow. Your program looks great.')
 
 main()
