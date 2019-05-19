@@ -1,3 +1,3 @@
 #!/bin/sh
 
-/home/user/run.py
+cd /tmp && /home/user/run.py

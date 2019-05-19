@@ -12,7 +12,7 @@ RUN apt-get update && \
         apt-get install -y nodejs && \
         npm install -g proof-of-work
 
-RUN groupadd -r user && useradd -r -g user user
+RUN groupadd -r user && useradd -r -g user user -d /home/user
 
 COPY --chown=root:root ./build/ctf.conf /etc/xinetd.d/ctf
 COPY --chown=root:user ./build/flag.py /home/user/flag.py
