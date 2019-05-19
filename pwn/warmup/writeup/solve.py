@@ -5,7 +5,7 @@ from pwn import *
 log = False
 is_gaibu = True
 if is_gaibu:
-    host = "localhost"
+    host = "35.200.22.128"
     port = 34000
 else:
     host = "127.0.0.1"

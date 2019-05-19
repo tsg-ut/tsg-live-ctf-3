@@ -8,4 +8,9 @@
 
 星空に手を伸ばして
 
+nc 35.200.22.128 36000
+
+## 配布物
+
+[problem/starry.go](problem/starry.go)
 
