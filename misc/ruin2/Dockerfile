@@ -27,6 +27,6 @@ RUN chmod 444 /etc/xinetd.d/ctf && \
     chmod 555 ./start.sh
 
 USER user
-EXPOSE 31000
+EXPOSE 37000
 
 CMD ["xinetd", "-dontfork"]

@@ -12,14 +12,17 @@
 
 ## ヒント
 
-* この問題と対になっている、問題「Magician」見ることを強く勧めます
+* OCamlのPervasivesはどのように実現しているでしょうか。OCamlの世界と実体の世界がいかにしてつながっているか考えたことはありますか？
 * フラグは /home/user/flag にあります
 * サーバーで動いているコンテナとコンパイルされたプログラムが同じ
  ものが、docker hubのmoratorium08/ocaml-boxからpullできます
 
 ## 配布物
 
-[Dockerfile](problem/Dockerfile)
+上述したimageのDockerfile
+
+* [Dockerfile](ocaml-box/Dockerfile)
+* [start.sh](build/start.sh)
 
 
 ## 難易度

@@ -1,3 +1,3 @@
 #!/bin/sh
 
-stdbuf -i0 -o0 -e0 /home/user/ocaml/runtime/ocamlrun /home/user/ocaml/ocaml -nostdlib -nopervasives
+timeout 60 stdbuf -i0 -o0 -e0 /ocaml/runtime/ocamlrun /ocaml/ocaml -nostdlib -nopervasives

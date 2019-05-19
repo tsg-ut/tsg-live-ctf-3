@@ -5,6 +5,8 @@ services:
         build: ./
         restart: always
         ports:
-            - "31000:31000"
+            - "36000:36000"
         expose:
-            - "31000"
+            - "36000"
+        mem_limit: 100m
+        read_only: true

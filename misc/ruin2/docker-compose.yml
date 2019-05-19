@@ -5,6 +5,6 @@ services:
         build: ./
         restart: always
         ports:
-            - "31000:31000"
+            - "37000:37000"
         expose:
-            - "31000"
+            - "37000"
