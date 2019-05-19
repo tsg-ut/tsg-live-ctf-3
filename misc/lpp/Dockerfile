@@ -10,7 +10,7 @@ RUN groupadd -r user && useradd -r -g user user
 
 WORKDIR /home/user
 
-COPY --chown=root:user ./problem/start.sh /home/user/start.sh
+COPY --chown=root:user ./build/start.sh /home/user/start.sh
 COPY --chown=root:user ./build/flag /home/user/flag
 COPY --chown=root:root ./build/ctf.conf /etc/xinetd.d/ctf
 

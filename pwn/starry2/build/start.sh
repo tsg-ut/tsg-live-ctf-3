@@ -1,3 +1,3 @@
 #!/bin/sh
 
-/home/user/starry
+timeout 60 /home/user/starry
