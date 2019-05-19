@@ -8,6 +8,11 @@
 
 すごいサービス作ったよ〜
 
+```
+$ python -V
+Python 3.6.8
+```
+
 ## 配布
 
 [websh.py](problem/websh.py)
